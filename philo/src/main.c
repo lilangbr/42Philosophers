@@ -6,7 +6,7 @@
 /*   By: ebresser <ebresser@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:34:10 by ebresser          #+#    #+#             */
-/*   Updated: 2022/07/04 00:38:32 by ebresser         ###   ########.fr       */
+/*   Updated: 2022/07/04 22:37:51 by ebresser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,16 @@ int main(int argc, char *argv[])
         printf("l_fork: %d:\n", *(philo[i].l_fork));
         i++;
     }
+	/*
+1 - Erros:
+	- poucos ou muitos argumentos OK
+	- não pode número negativo
+	- apenas números (não pode letras)
+	- número entre 0 e INTMAX	
+2 - Pegar argumentos da linha de comando e colocar na struct
+3 - Fazer a simulação com base na linha de comando: criar threads (filósofos) e mutex (garfos)
+4 - Encerrar o programa e destruir mutes
+*/
 
     return (0);
 }
