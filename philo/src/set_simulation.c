@@ -6,7 +6,7 @@
 /*   By: ebresser <ebresser@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 16:26:40 by ebresser          #+#    #+#             */
-/*   Updated: 2022/07/09 19:58:33 by ebresser         ###   ########.fr       */
+/*   Updated: 2022/07/09 20:31:14 by ebresser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ static void	set_philos(t_status *status)
 	i = 0;
 	while (i < status->args->number_philos)
 	{
-		status->philos[i].id = i + 1;		
+		status->philos[i].id = i + 1;//		
 		status->philos[i].meals_eaten = 0;
-		status->philos[i].is_dead = &status->is_dead;		
+		status->philos[i].is_dead = &status->is_dead;
+		status->philos[i].dead_index = &status->dead_index;///////
 		status->philos[i].time_of_death = &status->time_of_death;
 		status->philos[i].last_meal = 0;
 		status->philos[i].left_fork = &status->forks[i];
@@ -54,13 +55,13 @@ void	init_status(t_status *status, t_args *args)
 	pthread_t	thread[200];
 
 	status->args = args;
-	status->simul_start = get_time();//
+	status->simul_start = get_time();
 	status->time_of_death = 0;
-	status->is_dead = FALSE;	
+	status->is_dead = FALSE;
+	status->dead_index = 0;
 	pthread_mutex_init(&status->waiter, NULL);
 	pthread_mutex_init(&status->printer, NULL);
 	init_mutex_forks(status);
 	set_philos(status); 
-	start_simulation(status, thread); 
-	//join_threads(status, thread);	 
+	start_simulation(status, thread); 	 
 }

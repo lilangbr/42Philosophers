@@ -6,7 +6,7 @@
 /*   By: ebresser <ebresser@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:58:57 by ebresser          #+#    #+#             */
-/*   Updated: 2022/07/09 20:00:08 by ebresser         ###   ########.fr       */
+/*   Updated: 2022/07/09 20:35:46 by ebresser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,9 @@ typedef struct s_args
 typedef struct s_philo
 {
 	int				id;	
-	int				*is_dead;	
-	long long int	*time_of_death;	
+	int				*is_dead;
+	int				*dead_index;//
+	long long int	*time_of_death;
 	int				meals_eaten;
 	int				*number_meals;
 	long long int	last_meal;
@@ -120,7 +121,7 @@ typedef struct s_status
 	pthread_mutex_t	printer;
 	long long int	simul_start;
 	int				is_dead;
-	int				dead_index;
+	int				dead_index;//
 	long long int	time_of_death;	
 }				t_status;
 

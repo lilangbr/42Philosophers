@@ -6,7 +6,7 @@
 /*   By: ebresser <ebresser@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 17:33:58 by ebresser          #+#    #+#             */
-/*   Updated: 2022/07/09 19:50:38 by ebresser         ###   ########.fr       */
+/*   Updated: 2022/07/09 20:35:41 by ebresser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static void	satiation_sequence(t_philo *philo)
 static void	death_sequence(t_philo *philo)
 {
 	*philo->is_dead = TRUE;
-	*philo->time_of_death = duration(philo->simul_start);	
+	*philo->time_of_death = duration(philo->simul_start);
+	*philo->dead_index = philo->id;//
 }
 
 static void	*waiter_routine(void *philo_pointer)
