@@ -6,7 +6,7 @@
 /*   By: ebresser <ebresser@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:34:10 by ebresser          #+#    #+#             */
-/*   Updated: 2022/07/10 13:06:47 by ebresser         ###   ########.fr       */
+/*   Updated: 2022/07/10 13:42:06 by ebresser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int main(int argc, char *argv[])
 	if (start_simulation(&status, thread) == FALSE)
 		return (1);
 	if (status.is_dead)
-		output(status.time_of_death, status.dead_index, DEAD, 0);
+		output(status.time_of_death, status.dead_index, DEAD, 0);	
     return (0);
 }

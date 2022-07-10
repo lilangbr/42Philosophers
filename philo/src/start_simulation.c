@@ -6,13 +6,13 @@
 /*   By: ebresser <ebresser@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 16:26:40 by ebresser          #+#    #+#             */
-/*   Updated: 2022/07/10 13:14:27 by ebresser         ###   ########.fr       */
+/*   Updated: 2022/07/10 16:28:25 by ebresser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-static int	end_simulation(t_status *status, pthread_t *thread)
+static int	end_simulation(t_status *status, pthread_t *thread, pthread_t *end)
 {
 	int	i;
 
@@ -24,6 +24,8 @@ static int	end_simulation(t_status *status, pthread_t *thread)
 		
 		i++;
 	}
+	if (pthread_join(*end, NULL) != 0)
+			return (FALSE);
 	while (i < status->args->number_philos)
 	{
 		pthread_mutex_destroy(&status->forks[i]);
@@ -38,6 +40,7 @@ int	start_simulation(t_status *status, pthread_t *thread)
 {
 	int		i;
 	void	*current_philo;
+	pthread_t	end;
 
 	i = 0;
 	while (i < status->args->number_philos)
@@ -47,7 +50,9 @@ int	start_simulation(t_status *status, pthread_t *thread)
 			return (FALSE);
 		i++;
 	}
-	end_simulation(status, thread);	
+	if (pthread_create(&end, NULL, &waiter_routine, (void *)status) != 0)
+		return (FALSE); //NOVO
+	end_simulation(status, thread, &end);	
 	return (TRUE);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ebresser <ebresser@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:58:57 by ebresser          #+#    #+#             */
-/*   Updated: 2022/07/10 12:54:32 by ebresser         ###   ########.fr       */
+/*   Updated: 2022/07/10 16:10:39 by ebresser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <fcntl.h>
 
 /*
-** Standard macros redefined because the norme is a picky fucker.
+** Standard macros redefined (norme).
 */
 
 # define INT_MAX 2147483647
@@ -82,7 +82,7 @@
 # define RESET_COLOR "\033[0m"
 
 /*
-** Program state & philosopher structs.
+** Program args, status & philosopher.
 */
 typedef struct s_args
 {
@@ -117,44 +117,51 @@ typedef struct s_philo
 typedef struct s_status
 {
 	t_args			*args;
-	t_philo			philos[200]; //depois com var
+	t_philo			philos[200];
 	pthread_mutex_t	forks[200];
 	pthread_mutex_t	waiter;
 	pthread_mutex_t	printer;
 	long long int	simul_start;
 	int				is_dead;
-	int				dead_index;//
+	int				dead_index;
 	long long int	time_of_death;	
 }				t_status;
 
 
 
 //actions.c
-void	release_forks(t_philo *philo);
-void	pick_up_forks(t_philo *philo);
-int		thinking(t_philo *philo);
-int		sleeping(t_philo *philo);
-int		eating(t_philo *philo);
+void			release_forks(t_philo *philo);
+void			pick_up_forks(t_philo *philo);
+int				thinking(t_philo *philo);
+int				sleeping(t_philo *philo);
+int				eating(t_philo *philo);
+
 //check_input.c
-int		input_errors(int argc, char **argv);
+int				input_errors(int argc, char **argv);
+
 //printer.c
-void	output(long long int timestamp, int id, int type, int meals);	
+void			output(long long int timestamp, int id, int type, int meals);	
+
 //set_simulation.c
-int		init_status(t_status *status, t_args *args);
+int				init_status(t_status *status, t_args *args);
+
 //start_simulation.c
 int				start_simulation(t_status *status, pthread_t *thread);
 
 //threads_routines.c
 int				is_satiated(t_philo *philo);
 void			*philo_routine(void *philo_pointer);
+void			*waiter_routine(void *vstatus);
+
 //time.c
 __uint64_t		now_ms(void);
 long long int	duration_ms(long long int simul_start);
-void	wait_ms(long long int time);
+void			wait_ms(long long int time);
+
 //utils.c
 int				ft_atoi(const char *str);
 int				ft_isdigit(int c);
 long long int	ft_atoll(char *str);
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 
 #endif
