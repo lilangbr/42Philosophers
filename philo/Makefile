@@ -6,7 +6,7 @@
 #    By: ebresser <ebresser@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/03 21:45:13 by ebresser          #+#    #+#              #
-#    Updated: 2022/07/09 20:56:19 by ebresser         ###   ########.fr        #
+#    Updated: 2022/07/10 11:49:13 by ebresser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 CC = gcc #?
 
-FLAGS = -Wall -Wextra -Werror -g  -pthread #-fsanitize=address
+FLAGS = -Wall -Wextra -Werror   -pthread   -g #-fsanitize=thread #-fsanitize=address 
 
 RM = /bin/rm -f
 
