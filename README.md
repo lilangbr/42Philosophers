@@ -1,6 +1,6 @@
 # 42Philosophers
 
-Here are the things you need to know if you want to succeed this assignment:<br/><br/>
+Here are the things we need to know if we want to succeed this assignment:<br/><br/>
 • One or more philosophers sit at a round table.
 There is a large bowl of spaghetti in the middle of the table.<br/>
 • The philosophers alternatively eat, think, or sleep.
