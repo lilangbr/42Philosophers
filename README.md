@@ -1,5 +1,7 @@
 # 42Philosophers
 
+In this project, a classic compute problem, i will treat the basics of threading a process. 
+It's showed how to create threads and the basis of mutexes. </br></br>
 Here are the things we need to know if we want to succeed this assignment:<br/><br/>
 • One or more philosophers sit at a round table.
 There is a large bowl of spaghetti in the middle of the table.<br/>
