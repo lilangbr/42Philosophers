@@ -20,6 +20,10 @@ a philosopher dies of starvation.<br/>
 • Philosophers don’t know if another philosopher is about to die.<br/>
 • No need to say that philosophers should avoid dying!<br/>
 
+#### Schema
+
+![schema](./schema.png)
+
 ## Use:
 
 🚧 project:<br/>
